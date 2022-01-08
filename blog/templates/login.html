@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% comment %} {% load static %} {% endcomment %}
+
+{% block body %}
+        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>login</h1>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container ">
+            <div class="row">
+                <div class="col-4"></div>
+            <div class="col-4">
+              
+              
+                 
+                  <div class=" col-sm-auto bg-light  shadow-lg">
+                <div >
+                  {% if messages %}
+                  <ul class="messages">
+                      {% for message in messages %}
+                      <p{% if message.tags %} {{ message.tags }}{% endif %}><h5 class="text-success">{{ message }}</h5></P>
+                      {% endfor %}
+                  </ul>
+                  {% endif %}
+                  </div>
+                <h3 class="bg-primary p-3 text-light ">Login Form</h3>
+                <br><br>
+            {% csrf_token %}
+                <form action="" method="post" >
+                  {% csrf_token %}
+                <div>
+                  <input type="text"name='username' placeholder="Username"  class="form-control me-6 "  required>
+                </div>
+                  <br>
+                <div>
+                  <input type="text"name='password1' class="form-control" placeholder="Password" required> <br>
+                </div>
+               <div><br>
+               <input type="submit" class="form-control btn btn-primary rounded-pill" value="Login">
+               <h4><small>I don't have a account</small> <a class="btn btn-inline-primary " href="/">SignUp</a></h4>
+               </div>
+          
+              </form>
+             
+              </div>
+            </div>
+            </div>
+        </div>
+        <!-- Footer-->
+   {% endblock body %}
